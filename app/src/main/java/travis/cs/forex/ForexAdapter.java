@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -28,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.ForexViewHolder> {
+public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.ForexViewHolder> implements Filterable {
     public static class ForexViewHolder extends RecyclerView.ViewHolder{
         public LinearLayout containerView;
         public TextView textView;
@@ -56,6 +58,7 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.ForexViewHol
 
     private List<Currency> currencyList = new ArrayList<>();
     private RequestQueue requestQueue;
+    private List<Currency> filtered = new ArrayList<>();
 
     ForexAdapter(Context context){
         requestQueue = Volley.newRequestQueue(context);
@@ -78,6 +81,7 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.ForexViewHol
                         Currency currentCurrency = new Currency(currentKey, "", currentRate);
                         currencyList.add(currentCurrency);
                     }
+                    filtered = new ArrayList<>(currencyList);
                     notifyDataSetChanged();
                 } catch (JSONException e) {
                     Log.e("!!!!!!", "JSON Error", e);
@@ -92,6 +96,28 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.ForexViewHol
         requestQueue.add(request);
     }
 
+    private class CurrencyFilter extends Filter {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            FilterResults results = new FilterResults();
+            List<Currency> filteredCurrency = new ArrayList<>();
+            for (int i = 0; i < currencyList.size(); i++){
+                if (currencyList.get(i).getSymbol().toLowerCase().contains(constraint.toString().toLowerCase())){
+                    filteredCurrency.add(currencyList.get(i));
+                }
+            }
+            results.values = filteredCurrency;
+            results.count = filteredCurrency.size();
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            filtered = (List<Currency>) results.values;
+            notifyDataSetChanged();
+        }
+    }
+
     @NonNull
     @Override
     public ForexViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -103,7 +129,7 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.ForexViewHol
 
     @Override
     public void onBindViewHolder(@NonNull ForexViewHolder holder, int position) {
-        Currency current = currencyList.get(position);
+        Currency current = filtered.get(position);
         holder.textView.setText(current.toString());
         holder.containerView.setTag(current);
 
@@ -111,7 +137,11 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.ForexViewHol
 
     @Override
     public int getItemCount() {
-        return currencyList.size();
+        return filtered.size();
+    }
+
+    public Filter getFilter() {
+        return new CurrencyFilter();
     }
 }
 
