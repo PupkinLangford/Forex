@@ -32,10 +32,10 @@ public class CurrencyActivity extends AppCompatActivity {
         symbolTextView = findViewById(R.id.currency_symbol);
         rateTextView = findViewById(R.id.currency_rate);
         usdInput = findViewById(R.id.usd_amount);
-        symbolTextView.setText(symbol);
         usdInput.setText("1.00", TextView.BufferType.EDITABLE);
         symbol = getIntent().getStringExtra("symbol");
         rate = getIntent().getDoubleExtra("rate", 0);
+        symbolTextView.setText(symbol);
         updateOutput();
 
         usdInput.addTextChangedListener(new TextWatcher() {
