@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -14,12 +15,12 @@ import com.google.android.material.textfield.TextInputEditText;
 public class CurrencyActivity extends AppCompatActivity {
 
     private TextView symbolTextView;
+    private TextView symbolTextView2;
     private TextView rateTextView;
     private TextInputEditText usdInput;
+    private TextInputEditText otherInput;
     private String symbol;
     private double rate;
-    private double usdAmount;
-    private double convertedTotal;
     private RequestQueue requestQueue;
 
 
@@ -30,13 +31,18 @@ public class CurrencyActivity extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         symbolTextView = findViewById(R.id.currency_symbol);
+        symbolTextView2 = findViewById(R.id.currency_symbol2);
         rateTextView = findViewById(R.id.currency_rate);
         usdInput = findViewById(R.id.usd_amount);
+        otherInput = findViewById(R.id.other_amount);
+
         usdInput.setText("1.00", TextView.BufferType.EDITABLE);
         symbol = getIntent().getStringExtra("symbol");
         rate = getIntent().getDoubleExtra("rate", 0);
         symbolTextView.setText(symbol);
-        updateOutput();
+        symbolTextView2.setText(symbol);
+        rateTextView.setText(String.format("%.6f%n", rate));
+        otherInput.setText(String.format("%.6f%n", rate), TextView.BufferType.EDITABLE);
 
         usdInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -46,7 +52,7 @@ public class CurrencyActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                updateOutput();
+                updateOutput(usdInput, otherInput, rate);
             }
 
             @Override
@@ -55,15 +61,34 @@ public class CurrencyActivity extends AppCompatActivity {
             }
         });
 
+
+
+        /*otherInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                updateOutput(otherInput, usdInput, 1/rate);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });*/
+
     }
 
-    protected void updateOutput(){
+    protected void updateOutput(TextInputEditText editText, TextInputEditText target, double conversionRate){
         try{
-                usdAmount = Double.parseDouble(usdInput.getText().toString());
-                convertedTotal = rate * usdAmount;
-                rateTextView.setText(String.format("%.6f%n", convertedTotal));
+                double entryAmount = Double.parseDouble(editText.getText().toString());
+                double convertedTotal = conversionRate * entryAmount;
+                target.setText(String.format("%.2f%n", convertedTotal));
         } catch (Exception e){
-            rateTextView.setText("0.000000");
+            target.setText("0.000000");
         }
     }
 
