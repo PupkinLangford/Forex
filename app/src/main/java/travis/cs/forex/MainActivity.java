@@ -1,5 +1,6 @@
 package travis.cs.forex;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,7 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
@@ -24,11 +25,29 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.recycler_view);
-        adapter = new ForexAdapter(getApplicationContext());
+        adapter = new ForexFavAdapter(getApplicationContext());
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.go_home:
+                        adapter = new ForexFavAdapter(getApplicationContext());
+                        recyclerView.setAdapter(adapter);
+                        break;
+                    case R.id.go_all:
+                        adapter = new ForexAdapter(getApplicationContext());
+                        recyclerView.setAdapter(adapter);
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     @Override
