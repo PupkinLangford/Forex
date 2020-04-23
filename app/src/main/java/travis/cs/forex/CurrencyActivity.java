@@ -2,15 +2,22 @@ package travis.cs.forex;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class CurrencyActivity extends AppCompatActivity {
 
@@ -24,6 +31,10 @@ public class CurrencyActivity extends AppCompatActivity {
     private RequestQueue requestQueue;
     private TextWatcher usdTextWatcher;
     private TextWatcher foreignTextWatcher;
+    private boolean fav;
+    private Button favButton;
+    private SharedPreferences pref;
+    private Set<String> favList = new HashSet<>();
 
 
     @Override
@@ -45,6 +56,17 @@ public class CurrencyActivity extends AppCompatActivity {
         symbolTextView2.setText(symbol);
         rateTextView.setText(String.format("%.6f%n", rate));
         otherInput.setText(String.format("%.6f%n", rate), TextView.BufferType.EDITABLE);
+
+        favButton = findViewById(R.id.favbutton);
+
+        favList = getPreferences(Context.MODE_PRIVATE).getStringSet("favList", favList);
+        fav = favList.contains(symbol);
+        if (fav){
+            favButton.setText("Remove From Favorites");
+        }
+        else{
+            favButton.setText("Add to Favorites");
+        }
 
         usdTextWatcher = new TextWatcher() {
             @Override
@@ -94,6 +116,23 @@ public class CurrencyActivity extends AppCompatActivity {
         } catch (Exception e){
             target.setText("0.000000");
         }
+    }
+
+    public void toggleFav(View view){
+        fav = !fav;
+        pref = getPreferences(Context.MODE_PRIVATE);
+
+        if (fav){
+            favButton.setText("Remove From Favorites");
+            favList.add(symbol);
+        }
+        else{
+            favButton.setText("Add to Favorites");
+            favList.remove(symbol);
+        }
+        SharedPreferences.Editor editor = pref.edit();
+        editor.clear();
+        editor.putStringSet("favList", favList).commit();
     }
 
 
