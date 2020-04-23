@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-24:12
+ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-25:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\tahel\.gradle\caches\transforms-2\files-2.1\01aba6feafaa9666a150e0ccab90f24c\material-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\tahel\.gradle\caches\transforms-2\files-2.1\f7fa931c10060cb31b4ececcd856b65d\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\tahel\.gradle\caches\transforms-2\files-2.1\75fe1a0d0ea641341446dfd6b8974e96\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
@@ -42,20 +42,20 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\tahel\.gradle\caches\transform
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\tahel\.gradle\caches\transforms-2\files-2.1\e2041232485bdf4d2a09c36930218fc5\lifecycle-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\tahel\.gradle\caches\transforms-2\files-2.1\0b3ed2b8b9ba103e713cc57e24141ba7\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\tahel\.gradle\caches\transforms-2\files-2.1\80494d026c905f06e4c8b45b3569cb2d\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-25:12
 	package
 		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:3:5-30
 		INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-24:12
+		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-25:12
 		INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-24:12
+		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:1-25:12
 		INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:2:11-69
@@ -64,7 +64,7 @@ ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:5:5-
 	android:name
 		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:7:5-22:19
+ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:7:5-23:19
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\tahel\.gradle\caches\transforms-2\files-2.1\01aba6feafaa9666a150e0ccab90f24c\material-1.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\tahel\.gradle\caches\transforms-2\files-2.1\01aba6feafaa9666a150e0ccab90f24c\material-1.0.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\tahel\.gradle\caches\transforms-2\files-2.1\75fe1a0d0ea641341446dfd6b8974e96\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
@@ -91,24 +91,26 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ta
 		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
 		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:13:9-40
+	android:usesCleartextTraffic
+		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:14:9-44
 activity#travis.cs.forex.CurrencyActivity
-ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:14:9-63
+ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:15:9-63
 	android:name
-		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:14:19-51
+		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:15:19-51
 activity#travis.cs.forex.MainActivity
-ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:15:9-21:20
+ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:16:9-22:20
 	android:name
-		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:15:19-47
+		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:16:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:16:13-20:29
+ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:17:13-21:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:17:17-69
+ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:18:17-69
 	android:name
-		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:17:25-66
+		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:18:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:19:17-77
+ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:20:17-77
 	android:name
-		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:19:27-74
+		ADDED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml:20:27-74
 uses-sdk
 INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\tahel\Desktop\CS\Forex\app\src\main\AndroidManifest.xml

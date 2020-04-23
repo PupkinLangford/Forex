@@ -22,6 +22,8 @@ public class CurrencyActivity extends AppCompatActivity {
     private String symbol;
     private double rate;
     private RequestQueue requestQueue;
+    private TextWatcher usdTextWatcher;
+    private TextWatcher foreignTextWatcher;
 
 
     @Override
@@ -44,10 +46,10 @@ public class CurrencyActivity extends AppCompatActivity {
         rateTextView.setText(String.format("%.6f%n", rate));
         otherInput.setText(String.format("%.6f%n", rate), TextView.BufferType.EDITABLE);
 
-        usdInput.addTextChangedListener(new TextWatcher() {
+        usdTextWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+                otherInput.removeTextChangedListener(foreignTextWatcher);
             }
 
             @Override
@@ -57,16 +59,14 @@ public class CurrencyActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                otherInput.addTextChangedListener(foreignTextWatcher);
             }
-        });
+        };
 
-
-
-        /*otherInput.addTextChangedListener(new TextWatcher() {
+        foreignTextWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+                usdInput.removeTextChangedListener(usdTextWatcher);
             }
 
             @Override
@@ -76,17 +76,21 @@ public class CurrencyActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                usdInput.addTextChangedListener(usdTextWatcher);
             }
-        });*/
+        };
+
+        usdInput.addTextChangedListener(usdTextWatcher);
+        otherInput.addTextChangedListener(foreignTextWatcher);
+
 
     }
 
     protected void updateOutput(TextInputEditText editText, TextInputEditText target, double conversionRate){
         try{
-                double entryAmount = Double.parseDouble(editText.getText().toString());
-                double convertedTotal = conversionRate * entryAmount;
-                target.setText(String.format("%.2f%n", convertedTotal));
+            double entryAmount = Double.parseDouble(editText.getText().toString());
+            double convertedTotal = conversionRate * entryAmount;
+            target.setText(String.format("%.2f%n", convertedTotal));
         } catch (Exception e){
             target.setText("0.000000");
         }
