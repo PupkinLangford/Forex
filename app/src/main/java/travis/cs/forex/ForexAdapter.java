@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
 public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.ForexViewHolder> implements Filterable {
     public static class ForexViewHolder extends RecyclerView.ViewHolder{
         public LinearLayout containerView;
@@ -56,9 +57,9 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.ForexViewHol
         }
     }
 
-    private List<Currency> currencyList = new ArrayList<>();
-    private RequestQueue requestQueue;
-    private List<Currency> filtered = new ArrayList<>();
+    protected List<Currency> currencyList = new ArrayList<>();
+    protected RequestQueue requestQueue;
+    protected List<Currency> filtered = new ArrayList<>();
 
     ForexAdapter(Context context){
         requestQueue = Volley.newRequestQueue(context);
