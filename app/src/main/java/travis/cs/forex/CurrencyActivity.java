@@ -59,7 +59,7 @@ public class CurrencyActivity extends AppCompatActivity {
 
         favButton = findViewById(R.id.favbutton);
 
-        favList = getPreferences(Context.MODE_PRIVATE).getStringSet("favList", favList);
+        favList = getSharedPreferences("favFile", Context.MODE_PRIVATE).getStringSet("favList", favList);
         fav = favList.contains(symbol);
         if (fav){
             favButton.setText("Remove From Favorites");
@@ -120,7 +120,7 @@ public class CurrencyActivity extends AppCompatActivity {
 
     public void toggleFav(View view){
         fav = !fav;
-        pref = getPreferences(Context.MODE_PRIVATE);
+        pref = getSharedPreferences("favFile", Context.MODE_PRIVATE);
 
         if (fav){
             favButton.setText("Remove From Favorites");

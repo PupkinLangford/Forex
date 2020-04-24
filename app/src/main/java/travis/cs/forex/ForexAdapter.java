@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
 public class ForexAdapter extends RecyclerView.Adapter<ForexAdapter.ForexViewHolder> implements Filterable {
     public static class ForexViewHolder extends RecyclerView.ViewHolder{
         public LinearLayout containerView;

@@ -1,6 +1,7 @@
 package travis.cs.forex;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.android.volley.Request;
@@ -13,17 +14,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 public class ForexFavAdapter extends ForexAdapter{
 
-
+    private Set<String> favList;
     ForexFavAdapter(Context context) {
         super(context);
     }
 
     public void loadCurrencies(){
         String url = "http://data.fixer.io/api/latest?access_key=" + Constants.API_KEY;
+        favList = MainActivity.favList;
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -33,12 +37,12 @@ public class ForexFavAdapter extends ForexAdapter{
                     Iterator<String> iterator = rates.keys();
                     while (iterator.hasNext()){
                         String currentKey = iterator.next();
-                        if (!currentKey.equals("MXN") && !currentKey.equals("BRL") && !currentKey.equals("PEN")) {
-                            continue;
+                        if(favList.contains(currentKey))
+                        {
+                            double currentRate = rates.getDouble(currentKey) / usd;
+                            Currency currentCurrency = new Currency(currentKey, "", currentRate);
+                            currencyList.add(currentCurrency);
                         }
-                        double currentRate = rates.getDouble(currentKey) / usd;
-                        Currency currentCurrency = new Currency(currentKey, "", currentRate);
-                        currencyList.add(currentCurrency);
                     }
                     filtered = new ArrayList<>(currencyList);
                     notifyDataSetChanged();
